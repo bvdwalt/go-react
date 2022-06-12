@@ -1,5 +1,7 @@
 # go-react
+Simple [Go](https://github.com/golang/go) API using the [Gin HTTP framework](https://github.com/gin-gonic/gin) with an [React](https://reactjs.org/) frontend.
 
-Go Gin API statically serving a react starter app along with some other endpoints. 
-
-All you have to do it close this repo and run this: `go run main.go` then visit http://localhost:8080
+All you have to do is clone this repo and run/do the following:<br>
+- `yarn --cwd _ui/ run build`<br>
+- `go run main.go`
+- visit http://localhost:8080 to see the starter React App
