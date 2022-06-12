@@ -14,5 +14,8 @@
 # Dependency directories (remove the comment below to include it)
 # vendor/
 
-/_ui/public
+# Ignore React node modules as well as public directory
+_ui/node_modules/**
+_ui/build/**
+
 **.DS_Store**
