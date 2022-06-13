@@ -1,11 +1,16 @@
 package main
 
 import (
+	"bvdwalt/go-react/embedfs"
+	"embed"
 	"net/http"
 
 	"github.com/gin-gonic/contrib/static"
 	"github.com/gin-gonic/gin"
 )
+
+//go:embed _ui/build
+var UI embed.FS
 
 func main() {
 	// Set the router as the default one shipped with Gin
@@ -14,9 +19,8 @@ func main() {
 		ctx.String(http.StatusOK, "OK")
 	})
 
-	// Serve frontend static files
-	router.Use(static.Serve("/", static.LocalFile("./_ui/build", true)))
-	// Setup route group for the API
+	router.Use(static.Serve("/", embedfs.EmbedFolder(UI, "_ui/build", true)))
+
 	api := router.Group("/api")
 	{
 		api.GET("/", func(c *gin.Context) {
