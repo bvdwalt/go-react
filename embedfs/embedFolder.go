@@ -19,7 +19,6 @@ func (e embedFileSystem) Exists(prefix string, path string) bool {
 		return false
 	}
 
-	// check if indexing is allowed
 	s, _ := f.Stat()
 	if s.IsDir() && !e.indexes {
 		return false
